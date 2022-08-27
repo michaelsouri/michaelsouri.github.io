@@ -18,7 +18,6 @@ let animation = [
   { t: "michael sour_", ms: 100 },
   { t: "michael souri_", ms: 100 },
   { t: "michael souri", ms: 200 },
-  { t: "michael souri_", ms: 200 },
   { t: "michael souri", ms: 200 },
   { t: "michael souri", ms: 200 },
 ];
