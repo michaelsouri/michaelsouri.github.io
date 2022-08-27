@@ -20,8 +20,6 @@ let animation = [
   { t: "michael souri", ms: 200 },
   { t: "michael souri_", ms: 200 },
   { t: "michael souri", ms: 200 },
-  { t: "michael souri_", ms: 200 },
-  { t: "michael souri", ms: 200 },
   { t: "michael souri", ms: 200 },
 ];
 let stepDenominator = 1;
