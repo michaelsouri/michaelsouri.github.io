@@ -2,7 +2,7 @@ globe = new ENCOM.Globe(
   window.innerWidth,
   window.innerHeight - (main.clientTop + main.clientHeight),
   {
-    font: "Major Mono Display",
+    font: "Inconsolata",
     data: [],
     tiles: grid.tiles,
     baseColor: "#000000",
@@ -54,17 +54,17 @@ let initGlobe = () => {
     .then((r) => r.text())
     .then((r) => {
       let loc = JSON.parse(r);
-      globe.addPin(loc.latitude, loc.longitude);
+      // globe.addPin(loc.latitude, loc.longitude);
       globe.addMarker(loc.latitude, loc.longitude, loc.ip);
       fetch("https://ip-api.io/json/176.119.250.56")
         .then((r) => r.text())
         .then((r) => {
           let loc2 = JSON.parse(r);
-          globe.addPin(
-            loc2.latitude,
-            loc2.longitude,
-            Math.abs(loc.lon - loc2.lon) > 25
-          );
+          // globe.addPin(
+          //   loc2.latitude,
+          //   loc2.longitude,
+          //   Math.abs(loc.lon - loc2.lon) > 25
+          // );
           globe.addMarker(
             loc2.latitude,
             loc2.longitude,
