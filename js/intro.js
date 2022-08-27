@@ -1,9 +1,9 @@
 let header = document.querySelector("#intro");
 let animation = [
-  { t: " ", ms: 300 },
-  { t: "_", ms: 300 },
-  { t: " ", ms: 300 },
-  { t: "_", ms: 300 },
+  { t: " ", ms: 200 },
+  { t: "_", ms: 200 },
+  { t: " ", ms: 200 },
+  { t: "_", ms: 200 },
   { t: "m_", ms: 100 },
   { t: "mi_", ms: 100 },
   { t: "mic_", ms: 100 },
@@ -16,9 +16,13 @@ let animation = [
   { t: "michael so_", ms: 100 },
   { t: "michael sou_", ms: 100 },
   { t: "michael sour_", ms: 100 },
+  { t: "michael souri_", ms: 100 },
+  { t: "michael souri", ms: 200 },
   { t: "michael souri_", ms: 200 },
   { t: "michael souri", ms: 200 },
-  { t: "michael souri", ms: 300 },
+  { t: "michael souri_", ms: 200 },
+  { t: "michael souri", ms: 200 },
+  { t: "michael souri", ms: 200 },
 ];
 let stepDenominator = 1;
 if (window.localStorage.stepDenominator)
