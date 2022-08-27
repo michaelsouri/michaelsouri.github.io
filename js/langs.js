@@ -43,11 +43,10 @@ for (let button of lang_buttons) {
       return;
     }
 
-    // Remove underline from old lang
     if (currentEl) currentEl.className = "lang-button";
     button.className = "lang-button active";
 
-    // Do line down animation
+    // do animation - lineDown
     let x = button.offsetLeft + button.clientWidth / 2;
     lineDownSvg.style.left = x + "px";
     lineDownSvg.style.opacity = "1";
@@ -55,18 +54,18 @@ for (let button of lang_buttons) {
     lineDown.style.stroke = button.style.color;
     lineDown.style.strokeDashoffset = "-100px";
 
-    // Place exit thingy
+    // place exit marker
     langHint.style.left = x + "px";
 
-    // Do rectangle path
+    // do rect path
     currentEl = button;
     setUpPath();
-    undoPath(0.25);
+    undoPath(0.1);
     setTimeout(doPath, 250, button.style.color);
 
     details.classList.add("gone");
     setTimeout(() => {
-      // Reset lineDown
+      // reset lineDown
       lineDownSvg.style.opacity = "0";
       lineDown.style.transition = "initial";
       lineDown.style.strokeDashoffset = "100px";
@@ -74,7 +73,7 @@ for (let button of lang_buttons) {
       panel.classList.add("shown");
       going = false;
 
-      // Animate all the children
+      // animate
       let divs = panel.querySelectorAll(".projects>.proj");
       let timeout = 200;
       for (let div of divs) {
@@ -83,7 +82,7 @@ for (let button of lang_buttons) {
       }
     }, 500);
 
-    // exit thingy timeout
+    // exit marker timeout
     if (!window.localStorage.hideClickToExit) {
       langHint.exitTimeout = setTimeout(() => {
         langHint.innerText = "(click again to exit)";
@@ -101,7 +100,7 @@ function setUpPath() {
     window.innerHeight - left.parentElement.getBoundingClientRect().y - 20;
   let x2 = window.innerWidth - x - 40;
 
-  // Create svg paths
+  // create svg paths
   left.setAttribute(
     "d",
     `M ${x + 2},0
@@ -121,7 +120,7 @@ function setUpPath() {
 							 ${x2 - x + 40},${h} ${x2 - x},${h} ${x2 - x},${h}`
   );
   right.style.transform = `translateX(${x + 1}px) translateY(1px)`;
-  // Reset everything
+  // reset all
   let len = left.getTotalLength();
   left.style.transition = "initial";
   left.style.strokeDasharray = len;
@@ -133,7 +132,7 @@ function doPath(color) {
   left.style.stroke = color;
   right.style.stroke = color;
 
-  // Do animation
+  // do animation
   left.style.transition = "stroke-dashoffset .75s ease-in-out";
   right.style.transition = "stroke-dashoffset .75s ease-in-out";
   left.style.strokeDashoffset = "0";
@@ -147,7 +146,7 @@ function undoPath(seconds) {
   left.style.strokeDashoffset = len;
   right.style.strokeDashoffset = len;
 
-  // Hide current panel
+  // hide current panel
   let shownPanel = document.querySelector(".lang-panel.shown");
   if (shownPanel) {
     shownPanel.classList.remove("shown");
@@ -174,20 +173,7 @@ for (let p of projs) {
     modal.classList = "shown";
     modal.classList.add(color);
     modal.openingElement = p;
-    var pattern = Trianglify({
-      width: modal.clientWidth,
-      height: modal.clientHeight,
-      x_colors: [
-        "#000000",
-        "#1a1a1a",
-        "#333333",
-        "#4d4d4d",
-        "#333333",
-        "#1a1a1a",
-        "#000000",
-      ],
-    });
-    modal.style.background = "url(" + pattern.png() + ")";
+    modal.style.background = "#000000";
   });
 }
 
@@ -197,6 +183,7 @@ modal.querySelector(".close").addEventListener("click", () => {
 
 const projectDivs = document.querySelectorAll(".projects");
 
+// resize div heights and add PerfectScrollbar in the event of too many projects
 function updateProjectDivHeights() {
   for (let div of projectDivs) {
     div.style.height =

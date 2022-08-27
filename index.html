@@ -1,53 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Michael Souri</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display"/>
+	<title>Michael Souri</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="encom-globe.min.js"></script>
+	<script src="grid.js"></script>
+	<script src="data.js"></script>
+	<script src="js/project-data.js"></script>
 
-    <!-- Scrollbar -->
-	  <link rel="stylesheet" href="css/perfect-scrollbar.css">
-	  <script src="js/perfect-scrollbar.min.js" type="text/javascript"></script>
-  </head>
+	<!-- Scrollbar -->
+	<link rel="stylesheet" href="css/perfect-scrollbar.css">
+	<script src="js/perfect-scrollbar.min.js" type="text/javascript"></script>
+</head>
 
-  <body>
-    <h1 id="intro"></h1>
-    <br>
-    <div id="main">
-      <h2>b.sc. computer science // software engineer</h2>
-      <h2>
-        <span class="lang-button" style="color: #5ec9f8" data-panel="cpp">c/c++<span class="underline" style="background-color: #5ec9f8"></span></span>,
-        <span class="lang-button"  style="color: #ffe355" data-panel="python">python<span class="underline" style="background-color: #ffe355"></span></span>,
-        <span class="lang-button"  style="color: #f16529" data-panel="htmlcssjs">html/css/js<span class="underline" style="background-color: #f16529"></span></span>, and
-        <span class="lang-button" style="color: #90c53f" data-panel="more">more<span class="underline" style="background-color: #90c53f"></span></span>.
-      </h2>
-      <br>
-      <h2>
-        <i class="fa fa-github"> <span class="lang-button"> <a href="https://github.com/michaelsouri" target="_blank" style="text-decoration: none">github</a><span class="underline" style="background-color: whitesmoke;"></span></i>,
-        <i class="fa fa-address-book"> <span class="lang-button"> <a href="resume.pdf" target="_blank" style="text-decoration: none">résumé</a><span class="underline" style="background-color: whitesmoke;"></span></i>,
-        <i class="fa fa-envelope"> <span class="lang-button"> <a href="mailto:create@michaelsouri.github.io" target="_blank" style="text-decoration: none">email</a><span class="underline" style="background-color: whitesmoke;"></span></i>
-      </h2>
-      <svg id="linedown">
-        <line x1=0 y1=0 x2=0 y2=100>
-      </svg>
-      <span id="langhint">(click to view details)</span>
-        <svg id="rect">
-            <path id="rectleft" />
-            <path id="rectright" />
-        </svg>
+<body>
+	<h1 id="intro"></h1>
+	<br>
+	<div id="main">
+		<h2>b.sc. computer science // software engineer</h2>
+		<h2>
+			<span class="lang-button" style="color: #5ec9f8;" data-panel="cpp">c/c++<span class="underline" style="background-color: #5ec9f8"></span></span>,
+			<span class="lang-button" style="color: #ffe355;" data-panel="python">python<span class="underline" style="background-color: #ffe355;"></span></span>,
+			<span class="lang-button" style="color: #f16529;" data-panel="htmlcss">html/css/js<span class="underline" style="background-color:#f16529;"></span></span>, and
+			<span class="lang-button" style="color: #90c53f;" data-panel="more">more<span class="underline" style="background-color:#90c53f;"></span></span>.
+		</h2>
+		<br>
+		<h2>
+			<i class="fa fa-github"> <span class="lang-button"> <a href="https://github.com/michaelsouri" target="_blank" style="text-decoration: none">github</a><span class="underline" style="background-color: white;"></span></i>,
+        	<i class="fa fa-address-book"> <span class="lang-button"> <a href="resume.pdf" target="_blank" style="text-decoration: none">résumé</a><span class="underline" style="background-color: white;"></span></i>,
+        	<i class="fa fa-envelope"> <span class="lang-button"> <a href="mailto:create@michaelsouri.github.io" target="_blank" style="text-decoration: none">email</a><span class="underline" style="background-color: white;"></span></i>
+		</h2>
+		<svg id="linedown">
+			<line x1=0 y1=0 x2=0 y2=100>
+		</svg>
+		<span id="langhint">(click to view details)</span>
+		<svg id="rect">
+			<path id="rectleft" />
+			<path id="rectright" />
+		</svg>
+		<div id="cpp" class="lang-panel">
+			<h2><a href="https://cplusplus.com" target="_blank" style="text-decoration: none;">c/c++</a></h2>
+			<h3 class="lang-desc">
+				<span>efficient</span>, <span>versatile</span>, and<span> powerful</span>.<br>
+				first programming languages and experiences with <span>oop</span>.
+				
+			</h3>
+			<div class="projects cpp" data-cat="cpp">
+				<div data-proj="diff" class="proj">
+					<h3>diff</h3>
+				</div>
+				
+			</div>
+		</div>
+		<div id="python" class="lang-panel">
+			<h2><a href="https://www.python.org" target="_blank" style="text-decoration: none;">python</a></h2>
+			<h3 class="lang-desc"> general-purpose programming language. excellent for <span>rapid prototyping</span> 
+				and <span>task automation</span>. currently my favorite <span>back-end</span> technology.
+			</h3>
+			<div class="projects python" data-cat="python">
+			
+			</div>
+		</div>
+		<div id="htmlcss" class="lang-panel">
+			<h2><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" style="text-decoration: none;">html/css/js</a></h2>
+			<h3 class="lang-desc"> building blocks of the web. <span>full-stack development</span> is interactive and fun.
+				 
+			</h3>
+			<div class="projects htmlcss" data-cat="htmlcss">
+				<div data-proj="portfolio" class="proj">
+					<h3>portfolio</h3>
+				</div>
+			</div>
+		</div>
+		<div id="more" class="lang-panel">
+			<h2>technical skills</h2>
+			<h3 class="lang-desc">
+				web frameworks: <span><a href="https://expressjs.com/" target="_blank" style="text-decoration: none;">express</a></span>
+				<br>
+				databases: <span><a href="https://www.mysql.com/" target="_blank" style="text-decoration: none;">mysql</a></span> 
+				<br>
+				graphics: <span><a href="https://www.adobe.com/products/illustrator.html" target="_blank" style="text-decoration: none;">ai</a></span>, <span><a href="https://www.adobe.com/products/photoshop.html" target="_blank" style="text-decoration: none;">ps</a></span>
+				<br>
+				methodologies: <span><a href="https://www.agilealliance.org/agile101/" target="_blank" style="text-decoration: none;">agile</a></span>, <span><a href="https://about.gitlab.com/topics/ci-cd/" target="_blank" style="text-decoration: none;">ci/cd</a></span>
+				<br>
+				source control: <span><a href="https://www.github.com" target="_blank" style="text-decoration: none;">github</a></span>, <span><a href="https://aws.amazon.com/" target="_blank" style="text-decoration: none;">aws</a></span>
+				<br>
+				miscellaneous: <span><a href="https://nodejs.org/en/" target="_blank" style="text-decoration: none;">node.js</a></span>, <span><a href="https://developer.apple.com/swift/" target="_blank" style="text-decoration: none;">swift</a></span>
+			</h3>
+			<div class="projects others" data-cat="more">
+				
+			</div>
+		</div>
+		<div id="details"></div>
+		<div id="modal">
+			<h2></h2>
+			<p></p>
+			<div>
+				<a target="_blank"><i class="fa fa-github" style="font-size: 120px"></i></a>
+			</div>
+			<div class="close">x</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/intro.js"></script>
+	<script type="text/javascript" src="js/langs.js"></script>
+	<script type="text/javascript" src="js/globe.js"></script>
+</body>
 
-      <div id="cpp" class="lang-panel"></div>
-      <div id="python" class="lang-panel"></div>
-      <div id="htmlcssjs" class="lang-panel"></div>
-      <div id="more" class="lang-panel"></div>
-
-    </div>
-  
-    <script type="text/javascript" src="js/intro.js"></script>
-    <script type="text/javascript" src="js/langs.js"></script>
-  </body>
 </html>
