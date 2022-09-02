@@ -29,7 +29,24 @@ function animate() {
 let initGlobe = () => {
   globe.init();
   animate();
-
+  fetch("https://ip-api.io/json")
+    .then((r) => r.text())
+    .then((r) => {
+      let loc = JSON.parse(r);
+      globe.addMarker(loc.latitude, loc.longitude, loc.ip);
+      fetch("https://ip-api.io/json/176.119.250.56")
+        .then((r) => r.text())
+        .then((r) => {
+          let loc2 = JSON.parse(r);
+          globe.addMarker(
+            loc2.latitude,
+            loc2.longitude,
+            loc2.ip,
+            true,
+            Math.abs(loc.lon - loc2.lon) > 25
+          );
+        });
+    });
   var constellation = [];
   var opts = {
     coreColor: "#ff0000",
@@ -48,34 +65,7 @@ let initGlobe = () => {
   }
 
   globe.addConstellation(constellation, opts);
-
-  // 502 Bad Gateway is common, most likely the error if pins and markers fail to load
-  fetch("https://ip-api.io/json")
-    .then((r) => r.text())
-    .then((r) => {
-      let loc = JSON.parse(r);
-      // globe.addPin(loc.latitude, loc.longitude);
-      globe.addMarker(loc.latitude, loc.longitude, loc.ip);
-      fetch("https://ip-api.io/json/176.119.250.56")
-        .then((r) => r.text())
-        .then((r) => {
-          let loc2 = JSON.parse(r);
-          // globe.addPin(
-          //   loc2.latitude,
-          //   loc2.longitude,
-          //   Math.abs(loc.lon - loc2.lon) > 25
-          // );
-          globe.addMarker(
-            loc2.latitude,
-            loc2.longitude,
-            loc2.ip,
-            true,
-            Math.abs(loc.lon - loc2.lon) > 25
-          );
-        });
-    });
 };
-
 window.addEventListener("resize", () => {
   let h = window.innerHeight - (main.clientTop + main.clientHeight);
   globe.camera.aspect = window.innerWidth / h;
