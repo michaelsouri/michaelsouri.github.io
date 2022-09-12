@@ -2,7 +2,7 @@ globe = new ENCOM.Globe(
   window.innerWidth,
   window.innerHeight - (main.clientTop + main.clientHeight),
   {
-    font: "Major Mono Display",
+    font: "Inconsolata",
     data: [],
     tiles: grid.tiles,
     baseColor: "#000000",
