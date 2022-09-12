@@ -2,6 +2,10 @@
   font-family: "Major Mono Display", monospace;
 }
 
+text {
+  font-family: "Inconsolata", monospace;
+}
+
 body {
   margin: 0;
   background: black;
