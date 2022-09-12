@@ -2,10 +2,6 @@
   font-family: "Major Mono Display", monospace;
 }
 
-text {
-  font-family: "Inconsolata", monospace;
-}
-
 body {
   margin: 0;
   background: black;
@@ -292,6 +288,7 @@ canvas {
   transform: translateX(-50%) translateY(-50%);
   overflow: hidden;
   box-shadow: 0 0 100px 10px black inset;
+  font-family: "Inconsolata", monospace;
 }
 #modal.cpp,
 #modal.cpp > .close {
