@@ -9,7 +9,7 @@ const ProjectData = {
     title: "portfolio",
     github: "https://github.com/michaelsouri/michaelsouri.github.io",
     description:
-      "you are currently viewing the portfolio. went for something unique yet aesthetically pleasing.",
+      "you are currently viewing the portfolio. went for something unique yet aesthetically pleasing. thanks for checking it out.",
   },
   encryption: {
     title: "encrypted password manager",
