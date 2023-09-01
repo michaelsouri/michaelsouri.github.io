@@ -183,7 +183,7 @@ modal.querySelector(".close").addEventListener("click", () => {
 
 const projectDivs = document.querySelectorAll(".projects");
 
-// resize div heights and add PerfectScrollbar in the event of too many projects
+// resize div heights and add PerfectScrollbar
 function updateProjectDivHeights() {
   for (let div of projectDivs) {
     div.style.height =

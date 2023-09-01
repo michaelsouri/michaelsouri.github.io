@@ -9,7 +9,7 @@ const ProjectData = {
     title: "portfolio",
     github: "https://github.com/michaelsouri/michaelsouri.github.io",
     description:
-      "you are currently viewing the portfolio. went for something unique yet aesthetically pleasing. overall, i am happy with how everything turned out. the <b>svg</b> animations especially.",
+      "you are currently viewing the portfolio. went for something unique yet aesthetically pleasing.",
   },
   encryption: {
     title: "encrypted password manager",
@@ -22,5 +22,11 @@ const ProjectData = {
     github: "https://github.com/michaelsouri/custom-compiler",
     description:
       "challenging university project that taught me a lot about compilers. translates a specialized program with specific grammar into a <b>high-level</b> language (<b>c++</b>).",
+  },
+  slotmachine: {
+    title: "slot machine",
+    github: "https://github.com/michaelsouri/slot-machine",
+    description:
+      "simple text based slot machine. allows user to deposit money and make bets on lines.",
   },
 };
