@@ -299,7 +299,7 @@ canvas {
   border: 2px solid white;
   width: 90vw;
   height: 70vh;
-  left: 50%;
+  left: 52%;
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.25s linear;
