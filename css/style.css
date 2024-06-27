@@ -116,11 +116,11 @@ a.d {
   animation: none;
 }
 
-.about1-desc {
+.about-desc {
   animation: none;
 }
 
-#about > .about1-desc > span {
+#about > .about-desc > span {
   color: #5ec9f8;
 }
 
@@ -145,11 +145,11 @@ a.d {
 }
 
 #details {
-  margin-top: 0px;
+  margin-top: 50px;
   opacity: 1;
   z-index: 100;
-  transition: all 0.125s ease-in-out;
   font-family: "Inconsolata", monospace;
+  transition: all 0.125s ease-in-out;
 }
 
 #details.gone {
@@ -297,14 +297,16 @@ canvas {
   background: #000000d0;
   border-radius: 20px;
   border: 2px solid white;
-  width: 90vw;
-  height: 70vh;
-  left: 52%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  /* width: 90vw;
+  height: 70vh; */
+  /* left: 50%;
+  top: 50%; */
+  /* transform: translate(-50%, -50%); */
   transition: opacity 0.25s linear;
   overflow: hidden;
   box-shadow: 0 0 100px 10px black inset;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 #modal.about,
