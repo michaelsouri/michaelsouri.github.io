@@ -299,10 +299,10 @@ canvas {
   border: 2px solid white;
   width: 90vw;
   height: 70vh;
-  left: 50%;
+  left: 48%;
   top: 50%;
+  transform: translate(-50%, -50%);
   transition: opacity 0.25s linear;
-  transform: translateX(-50%) translateY(-50%);
   overflow: hidden;
   box-shadow: 0 0 100px 10px black inset;
 }
