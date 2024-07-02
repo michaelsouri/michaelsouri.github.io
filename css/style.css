@@ -294,17 +294,6 @@ canvas {
   box-shadow: 0 0 100px 10px black inset;
 }
 
-#modal a {
-  display: inline-flex; /* Use inline-flex to ensure the content stays inline */
-  align-items: center; /* Align items vertically centered */
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit the color from the parent */
-}
-
-#modal a i {
-  margin-right: 10px; /* Adjust spacing between icon and text */
-}
-
 #modal.about,
 #modal.about > .close {
   border-color: #5ec9f8;
