@@ -1,11 +1,15 @@
 * {
-  font-family: "Major Mono Display", monospace;
+  font-family: "Major Mono Display", "Inconsolata", monospace;
 }
 
 body {
   margin: 0;
   background: black;
   overflow: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -112,35 +116,19 @@ a.d {
   margin: 10px auto;
 }
 
-.skills-desc {
-  animation: none;
-}
-
-.about-desc {
-  animation: none;
-}
-
-#about > .about-desc > span {
+#nodejs > .lang-desc > span {
   color: #5ec9f8;
 }
 
-#skills > .skills-desc > span {
-  color: #f16529;
-}
-
-#about > .lang-desc > span {
-  color: #5ec9f8;
-}
-
-#projects > .lang-desc > span {
+#flutter > .lang-desc > span {
   color: #ffe355;
 }
 
-#skills > .lang-desc > span {
+#htmlcss > .lang-desc > span {
   color: #f16529;
 }
 
-#certs > .lang-desc > span {
+#others > .lang-desc > span {
   color: #90c53f;
 }
 
@@ -148,7 +136,6 @@ a.d {
   margin-top: 50px;
   opacity: 1;
   z-index: 100;
-  font-family: "Inconsolata", monospace;
   transition: all 0.125s ease-in-out;
 }
 
@@ -195,7 +182,7 @@ canvas {
   box-sizing: border-box;
   background-size: 100% 100%;
   position: relative;
-  box-shadow: 0 0 0 1000px inset #0000008f, 0 0 45px 0 inset black;
+  box-shadow: 0 0 0 0px inset #0000008f, 0 0 25px 0 inset black;
   border-radius: 20px;
   background-position: center;
   cursor: pointer;
@@ -208,7 +195,7 @@ canvas {
 }
 
 .proj:hover {
-  background-size: 120% 120%;
+  background-size: 105% 105%;
 }
 
 .proj::before,
@@ -243,47 +230,48 @@ canvas {
     height 0.125s ease-out 0.325s, border-radius 0.5s ease-out 0.5s;
 }
 
-.projects.about > .proj.loaded::before {
+.projects.node > .proj.loaded::before {
   border-top-color: #5ec9f8;
   border-right-color: #5ec9f8;
 }
 
-.projects.about > .proj.loaded::after {
+.projects.node > .proj.loaded::after {
   border-bottom-color: #5ec9f8;
   border-left-color: #5ec9f8;
 }
 
-.projects.projects > .proj.loaded::before {
+.projects.flutter > .proj.loaded::before {
   border-top-color: #ffe355;
   border-right-color: #ffe355;
 }
 
-.projects.projects > .proj.loaded::after {
+.projects.flutter > .proj.loaded::after {
   border-bottom-color: #ffe355;
   border-left-color: #ffe355;
 }
 
-.projects.skills > .proj.loaded::before {
+.projects.htmlcss > .proj.loaded::before {
   border-top-color: #f16529;
   border-right-color: #f16529;
 }
 
-.projects.skills > .proj.loaded::after {
+.projects.htmlcss > .proj.loaded::after {
   border-bottom-color: #f16529;
   border-left-color: #f16529;
 }
 
-.projects.certs > .proj.loaded::before {
+.projects.others > .proj.loaded::before {
   border-top-color: #90c53f;
   border-right-color: #90c53f;
 }
 
-.projects.certs > .proj.loaded::after {
+.projects.others > .proj.loaded::after {
   border-bottom-color: #90c53f;
   border-left-color: #90c53f;
 }
-.projects.about > .proj {
-  border-color: #5ec9f8;
+
+.projects.node > .proj {
+  border-color: #ffffff;
 }
 
 /* modal */
@@ -296,36 +284,45 @@ canvas {
   background: #000000d0;
   border-radius: 20px;
   border: 2px solid white;
-  /* width: 90vw;
-  height: 70vh; */
-  /* left: 50%;
-  top: 50%; */
-  /* transform: translate(-50%, -50%); */
+  width: 90vw;
+  height: 70vh;
+  left: 50%;
+  top: 50%;
   transition: opacity 0.25s linear;
+  transform: translateX(-50%) translateY(-50%);
   overflow: hidden;
   box-shadow: 0 0 100px 10px black inset;
-  /* justify-content: center;
-  align-items: center; */
 }
 
-#modal.about,
-#modal.about > .close {
+#modal a {
+  display: inline-flex; /* Use inline-flex to ensure the content stays inline */
+  align-items: center; /* Align items vertically centered */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent */
+}
+
+#modal a i {
+  margin-right: 10px; /* Adjust spacing between icon and text */
+}
+
+#modal.nodejs,
+#modal.nodejs > .close {
   border-color: #5ec9f8;
 }
 
-#modal.projects,
-#modal.projects > .close {
+#modal.flutter,
+#modal.flutter > .close {
   border-color: #ffe355;
 }
 
-#modal.skills,
-#modal.skills > .close {
+#modal.htmlcss,
+#modal.htmlcss > .close {
   border-color: #f16529;
 }
 
-#modal.certs,
-#modal.certs > .close {
-  border-color: #ffdd48;
+#modal.others,
+#modal.others > .close {
+  border-color: #90c53f;
 }
 
 #modal.shown {

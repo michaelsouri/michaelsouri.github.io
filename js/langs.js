@@ -43,10 +43,11 @@ for (let button of lang_buttons) {
       return;
     }
 
+  
     if (currentEl) currentEl.className = "lang-button";
     button.className = "lang-button active";
 
-    // do animation - lineDown
+    // lineDown animation
     let x = button.offsetLeft + button.clientWidth / 2;
     lineDownSvg.style.left = x + "px";
     lineDownSvg.style.opacity = "1";
@@ -54,18 +55,18 @@ for (let button of lang_buttons) {
     lineDown.style.stroke = button.style.color;
     lineDown.style.strokeDashoffset = "-100px";
 
-    // place exit marker
+    // Exit 
     langHint.style.left = x + "px";
 
-    // do rect path
+    // Rectangle path
     currentEl = button;
     setUpPath();
-    undoPath(0.1);
+    undoPath(0.25);
     setTimeout(doPath, 250, button.style.color);
 
     details.classList.add("gone");
     setTimeout(() => {
-      // reset lineDown
+      // Reset lineDown
       lineDownSvg.style.opacity = "0";
       lineDown.style.transition = "initial";
       lineDown.style.strokeDashoffset = "100px";
@@ -73,7 +74,6 @@ for (let button of lang_buttons) {
       panel.classList.add("shown");
       going = false;
 
-      // animate
       let divs = panel.querySelectorAll(".projects>.proj");
       let timeout = 200;
       for (let div of divs) {
@@ -82,7 +82,7 @@ for (let button of lang_buttons) {
       }
     }, 500);
 
-    // exit marker timeout
+    // exitTimeout
     if (!window.localStorage.hideClickToExit) {
       langHint.exitTimeout = setTimeout(() => {
         langHint.innerText = "(click again to exit)";
@@ -100,7 +100,7 @@ function setUpPath() {
     window.innerHeight - left.parentElement.getBoundingClientRect().y - 20;
   let x2 = window.innerWidth - x - 40;
 
-  // create svg paths
+  // Create svg paths
   left.setAttribute(
     "d",
     `M ${x + 2},0
@@ -120,7 +120,7 @@ function setUpPath() {
 							 ${x2 - x + 40},${h} ${x2 - x},${h} ${x2 - x},${h}`
   );
   right.style.transform = `translateX(${x + 1}px) translateY(1px)`;
-  // reset all
+  // Reset
   let len = left.getTotalLength();
   left.style.transition = "initial";
   left.style.strokeDasharray = len;
@@ -132,7 +132,7 @@ function doPath(color) {
   left.style.stroke = color;
   right.style.stroke = color;
 
-  // do animation
+  // Animation
   left.style.transition = "stroke-dashoffset .75s ease-in-out";
   right.style.transition = "stroke-dashoffset .75s ease-in-out";
   left.style.strokeDashoffset = "0";
@@ -146,7 +146,7 @@ function undoPath(seconds) {
   left.style.strokeDashoffset = len;
   right.style.strokeDashoffset = len;
 
-  // hide current panel
+  // Remove current panel
   let shownPanel = document.querySelector(".lang-panel.shown");
   if (shownPanel) {
     shownPanel.classList.remove("shown");
@@ -164,16 +164,31 @@ for (let p of projs) {
     let color = p.parentElement.getAttribute("data-cat");
     modal.children[0].innerHTML = data.title;
     modal.children[1].innerHTML = data.description;
-    if (data.github) {
+    
+    // Check if link exists
+    if (data.github || data.linkIcon) {
       modal.children[2].style.display = "block";
-      modal.children[2].firstElementChild.href = data.github;
+      let iconLink = modal.children[2].querySelector("a");
+      iconLink.href = data.linkIcon.href;
+      iconLink.innerHTML = `<i class="${data.linkIcon.class}" style="font-size: ${data.iconSize};"></i>`;
+      
+      // Apply custom positioning if defined in ProjectData
+      if (data.iconPosition) {
+        let icon = iconLink.querySelector("i");
+        icon.style.position = "absolute";
+        icon.style.top = data.iconPosition.top;
+        // icon.style.right = data.iconPosition.right;
+        // icon.style.right = data.iconPosition.left;
+      }
     } else {
-      modal.children[2].style.display = "hidden";
+      modal.children[2].style.display = "none"; // Hide if no GitHub link or icon
     }
+
     modal.classList = "shown";
     modal.classList.add(color);
-    modal.openingElement = p;
+    //modal.openingElement = p;
     modal.style.background = "#000000";
+
   });
 }
 
@@ -183,7 +198,6 @@ modal.querySelector(".close").addEventListener("click", () => {
 
 const projectDivs = document.querySelectorAll(".projects");
 
-// resize div heights and add PerfectScrollbar
 function updateProjectDivHeights() {
   for (let div of projectDivs) {
     div.style.height =
