@@ -116,15 +116,15 @@ a.d {
   margin: 10px auto;
 }
 
-#nodejs > .lang-desc > span {
+#about > .lang-desc > span {
   color: #5ec9f8;
 }
 
-#flutter > .lang-desc > span {
+#modules > .lang-desc > span {
   color: #ffe355;
 }
 
-#htmlcss > .lang-desc > span {
+#certs > .lang-desc > span {
   color: #f16529;
 }
 
@@ -240,22 +240,22 @@ canvas {
   border-left-color: #5ec9f8;
 }
 
-.projects.flutter > .proj.loaded::before {
+.projects.modules > .proj.loaded::before {
   border-top-color: #ffe355;
   border-right-color: #ffe355;
 }
 
-.projects.flutter > .proj.loaded::after {
+.projects.modules > .proj.loaded::after {
   border-bottom-color: #ffe355;
   border-left-color: #ffe355;
 }
 
-.projects.htmlcss > .proj.loaded::before {
+.projects.certs > .proj.loaded::before {
   border-top-color: #f16529;
   border-right-color: #f16529;
 }
 
-.projects.htmlcss > .proj.loaded::after {
+.projects.certs > .proj.loaded::after {
   border-bottom-color: #f16529;
   border-left-color: #f16529;
 }
@@ -305,18 +305,18 @@ canvas {
   margin-right: 10px; /* Adjust spacing between icon and text */
 }
 
-#modal.nodejs,
-#modal.nodejs > .close {
+#modal.about,
+#modal.about > .close {
   border-color: #5ec9f8;
 }
 
-#modal.flutter,
-#modal.flutter > .close {
+#modal.modules,
+#modal.modules > .close {
   border-color: #ffe355;
 }
 
-#modal.htmlcss,
-#modal.htmlcss > .close {
+#modal.certs,
+#modal.certs > .close {
   border-color: #f16529;
 }
 
