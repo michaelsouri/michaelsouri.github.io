@@ -1,3 +1,16 @@
+
+document.addEventListener("DOMContentLoaded", function() {
+  const inconsolata = new FontFaceObserver('Inconsolata');
+  const majorMono = new FontFaceObserver('Major Mono Display');
+  
+  Promise.all([inconsolata.load(), majorMono.load()]).then(() => {
+      initGlobe();
+  }).catch(() => {
+      console.error('Font loading failed');
+      initGlobe(); // Fallback to render even if fonts fail to load
+  });
+});
+
 globe = new ENCOM.Globe(window.innerWidth, window.innerHeight - (main.clientTop + main.clientHeight), {
   font: "Inconsolata",
   data: [],
@@ -18,43 +31,48 @@ document.getElementById('details').appendChild(globe.domElement);
 
 function animate() {
   if (globe) {
-      globe.tick();
+    globe.tick();
   }
   requestAnimationFrame(animate);
 }
+
 let initGlobe = () => {
   globe.init();
   animate();
   fetch('https://ip-api.io/json').then(r => r.text()).then(r => {
-      let loc = JSON.parse(r);
-      globe.addMarker(loc.latitude, loc.longitude, loc.ip);
-      fetch('https://ip-api.io/json/176.119.250.56').then(r => r.text()).then(r => {
-          let loc2 = JSON.parse(r);
-          globe.addMarker(loc2.latitude, loc2.longitude, loc2.ip, true, Math.abs(loc.lon - loc2.lon) > 25);
-      });
+    let loc = JSON.parse(r);
+    //console.log('First marker properties:', loc);
+    globe.addMarker(loc.latitude, loc.longitude, loc.ip);
+    fetch('https://ip-api.io/json/176.119.250.56').then(r => r.text()).then(r => {
+      let loc2 = JSON.parse(r);
+      //console.log('Second marker properties:', loc2);
+      globe.addMarker(loc2.latitude, loc2.longitude, loc2.ip, true, Math.abs(loc.lon - loc2.lon) > 25);
+    });
   });
+
   var constellation = [];
   var opts = {
-      coreColor: "#ff0000",
-      numWaves: 8
+    coreColor: "#ff0000",
+    numWaves: 8
   };
   var alt = 1;
 
   for (var i = 0; i < 2; i++) {
-      for (var j = 0; j < 3; j++) {
-          constellation.push({
-              lat: 50 * i - 30 + 15 * Math.random(),
-              lon: 120 * j - 120 + 30 * i,
-              altitude: alt
-          });
-      }
+    for (var j = 0; j < 3; j++) {
+      constellation.push({
+        lat: 50 * i - 30 + 15 * Math.random(),
+        lon: 120 * j - 120 + 30 * i,
+        altitude: alt
+      });
+    }
   }
 
   globe.addConstellation(constellation, opts);
 }
+
 window.addEventListener('resize', () => {
   let h = window.innerHeight - (main.clientTop + main.clientHeight);
   globe.camera.aspect = window.innerWidth / h;
   globe.camera.updateProjectionMatrix();
   globe.renderer.setSize(window.innerWidth, h);
-})
+});
