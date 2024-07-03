@@ -4,8 +4,20 @@
 
 body {
   margin: 0;
+  font-family: 'Inconsolata', monospace;
   background: black;
   overflow: hidden;
+}
+
+.marker {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px;
+  color: #aacfd1;
+}
+
+.marker.special {
+  color: #ff0000;
+  font-weight: bold;
 }
 
 a {
