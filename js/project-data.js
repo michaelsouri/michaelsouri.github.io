@@ -37,7 +37,7 @@ const ProjectData = {
   about: {
     title: "about me",
     description:
-      "extensive experience in providing comprehensive <b>technical support</b>, <b>troubleshooting</b> complex network issues, and implementing robust <b>network management</b> solutions. proven track record in improving network reliability and operational efficiency. adept at collaborating with cross-functional teams to deliver effective solutions that align with organizational goals and <b>compliance standards</b>. skilled in <b>python</b>, <b>c++</b>, and <b>javascript</b> developing efficient and scalable solutions to meet diverse technical needs.",
+      "i’m a network operations engineer with a strong background in it operations, networking, and security, currently supporting large-scale ev charging infrastructure at rivian. my experience spans diagnosing linux-based systems, optimizing cellular and network connectivity, automating infrastructure with tools like bash and puppet, and maintaining secure, high-availability enterprise environments. with a b.sc. in computer science, comptia security+ certification, and hands-on experience across networking, cloud security, and systems administration, i’m driven by solving complex technical problems and building reliable, scalable systems.",
     linkIcon: { class: "fa fa-user-secret", href: "media/portfolio_resume.pdf", target: "_blank"},
     iconSize: "120px",
   },
